@@ -1,9 +1,15 @@
 
 
 public class MyLinkedList{
+  private Node start;
+  private Node end;
+  private int length;
   private class Node{
     private int data;
     private Node next,prev;
+    public Node (int d, Node n, Node p){
+      data = d;
+    }
       public Node next(){
         return next;
       }
@@ -14,24 +20,24 @@ public class MyLinkedList{
         next = other;
       }
       public void setPrev(Node other){
-        prev = ther;
+        prev = other;
       }
       public Integer getData(){
         return data;
       }
       public Integer setData(Integer i){
+        int sigh = data;
         data = i;
-        return data;
+        return sigh;
       }
       public String toString(){
         String y = "";
         return y + data;
       }
    }
-   private int size;
-   private Node start,end;
+   public MyLinkedList() {
 
-  // MyLinkedList() - make an empty list.
+   }
    public int size() {
      return size;
    }
