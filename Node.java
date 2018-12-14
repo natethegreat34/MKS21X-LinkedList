@@ -7,7 +7,7 @@ public class MyLinkedList{
   private class Node{
     private int data;
     private Node next,prev;
-    public Node (int d, Node n, Node p){
+    public Node (int d){
       data = d;
     }
       public Node next(){
@@ -41,10 +41,33 @@ public class MyLinkedList{
    public int size() {
      return size;
    }
-   public boolean add(int value){
+   public boolean add(Integer value){
+     Node gat = new Node (value);
+     end = gat;
      return true;
    }
    public String toString(){
-     return "[ " + start + " | " + " ]";
+     String happy = "[ ";
+     for (int i = 0; i < length -1; i ++){
+       happy = happy + next() + " , ";
+     }
+     return happy + "]";
    }
+
+   public Integer get(int index){
+     int i = 0;
+     Node love;
+     while ( love != null && i <= index)
+     love = love.next();
+     i ++;
+   }
+
+public    Integer set(int index,Integer value){;}
+
+     boolean contains(Integer value){;}
+     int indexOf(Integer value){;}
+
+public void add(int index,Integer value){;}
+public Integer remove(int index){;}
+public Integer remove(Integer value){;}
  }
