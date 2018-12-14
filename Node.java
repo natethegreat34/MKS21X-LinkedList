@@ -56,7 +56,7 @@ public class MyLinkedList{
 
    public Integer get(int index){
      int i = 0;
-     Node love;
+     Node love = start;
      while ( love != null && i <= index){
      love = love.next();
      i ++;
@@ -66,18 +66,48 @@ public class MyLinkedList{
 
 public Integer set(int index, Integer value){
   int i = 0;
-  Node love;
+  Node love = start;
   while ( love != null && i <= index){
   love = love.next();
   i ++;
 }
+Node life = love;
 love = value;
+return life;
 }
 
-     boolean contains(Integer value){;}
-     int indexOf(Integer value){;}
+public boolean contains(Integer value){
+  int i = 0;
+  Node love = start;
+  while ( love != null) {
+  if (love = value){
+    return true;
+  }
+}
+return false;
+}
+public int indexOf(Integer value){
+  int i = 0;
+  Node love = start;
+  while ( love != null) {
+  if (love = value){
+    return i;
+  }
+  i ++;
+}
+return -1;
+}
 
-public void add(int index,Integer value){;}
+public void add(int index, Integer value){
+  int i = 0;
+  Node love = start;
+  while ( love != null && i <= index){
+  love = love.next();
+  i ++;
+}
+
+
+}
 public Integer remove(int index){;}
 public Integer remove(Integer value){;}
  }
