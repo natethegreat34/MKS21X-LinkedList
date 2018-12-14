@@ -57,12 +57,22 @@ public class MyLinkedList{
    public Integer get(int index){
      int i = 0;
      Node love;
-     while ( love != null && i <= index)
+     while ( love != null && i <= index){
      love = love.next();
      i ++;
    }
+   return love;
+   }
 
-public    Integer set(int index,Integer value){;}
+public Integer set(int index, Integer value){
+  int i = 0;
+  Node love;
+  while ( love != null && i <= index){
+  love = love.next();
+  i ++;
+}
+love = value;
+}
 
      boolean contains(Integer value){;}
      int indexOf(Integer value){;}
