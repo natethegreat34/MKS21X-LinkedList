@@ -16,24 +16,25 @@ public class MyLinkedList{
     }
 
     public boolean add(Integer value){
-        Node gat = new Node (null, end, value);
+        Node gat = new Node (null, null, value);
         if (length == 0){
             start = gat;
         }
         else{
-            gat.setPrev(end);
-            end.setNext(gat);
-        }
-        end = gat;
+        gat.setPrev(end);
+        end.setNext(gat);
+    }
+    end = gat;
         length ++;
         return true;
     }
 
     public String toString(){
         String happy = "[ ";
-        for (int i = 0; i < length -1; i ++){
-            happy = happy + start.next() + " , ";
-            start = start.next();
+        Node lol = start;
+        while (lol != end){
+            happy = happy + lol.getData() + ", ";
+            lol = lol.next();
         }
         return happy + "]";
     }
