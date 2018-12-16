@@ -32,11 +32,14 @@ public class MyLinkedList{
     public String toString(){
         String happy = "[ ";
         Node lol = start;
+        if (length == 1){
+            return "[" + start + "]";
+        }
         while (lol != end){
-            happy = happy + lol.getData() + ", ";
+            happy = happy + lol + ", ";
             lol = lol.next();
         }
-        return happy + "]";
+        return happy + end + "]";
     }
 
    public Integer get(int index){
