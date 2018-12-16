@@ -46,29 +46,30 @@ public class MyLinkedList{
      if (index < 0 || index >= length){
        throw new IndexOutOfBoundsException();
      }
-     int i = 0;
+    else{ int i = 0;
      Node love = start;
-     while ( love != null && i <= index){
+     while ( love != null && i < index){
      love = love.next();
      i ++;
    }
    return love.getData();
-   }
+}}
 
 public Integer set(int index, Integer value){
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
   }
+  else{
   int i = 0;
   Node love = start;
-  while ( love != null && i <= index){
+  while ( love != null && i < index){
   love = love.next();
   i ++;
 }
-Node life = love;
+Node life = new Node (null, null, love.getData());
 love.setData(value);
 return life.getData();
-}
+}}
 
 public boolean contains(Integer value){
   int i = 0;
@@ -83,9 +84,9 @@ return false;
 }
 public int indexOf(Integer value){
   if (!contains(value)){
-    throw new NullPointerException();
+    return  -1;
   }
-  int i = 0;
+  else {int i = 0;
   Node love = start;
   while ( love != null) {
   if (love.getData() == value){
@@ -95,25 +96,27 @@ public int indexOf(Integer value){
   i ++;
 }
 return -1;
-}
+}}
 
 public void add(int index, Integer value){
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
   }
-  int i = 0;
+  else{
+      int i = 0;
   Node love = start;
   while ( love != null && i <= index){
   love = love.next();
   i ++;
 }
 
-}
+}}
 public Integer remove(int index){
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
   }
-  int i = 0;
+  else {
+      int i = 0;
   Node love = start;
   while ( love != null && i <= index){
   love = love.next();
@@ -124,7 +127,7 @@ while (love != null){
 love = love.next();
 }
 return help.getData();
-}
+}}
 
 public Integer remove(Integer value){
   return remove (indexOf(value));
