@@ -102,15 +102,32 @@ public void add(int index, Integer value){
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
   }
-  else{
-      int i = 0;
+  else if (index == length-1){
+          add(value);
+      }
+
+  else if (index == 0){
+             Node gat = new Node (null,null, value);
+             start.setPrev(gat);
+             gat.setNext(start);
+             start = gat;
+             length ++;
+         }
+         else{
+             int i = 0;
   Node love = start;
   while ( love != null && i <= index){
   love = love.next();
   i ++;
 }
-
+Node gat = new Node (null,null, value);
+gat.setPrev(love.prev());
+gat.setNext(love);
+love.prev().setNext(gat);
+love.setPrev(gat);
+length ++;
 }}
+
 public Integer remove(int index){
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
