@@ -83,6 +83,7 @@ public boolean contains(Integer value){
   if (love = value){
     return true;
   }
+  love = love.next();
 }
 return false;
 }
@@ -93,6 +94,7 @@ public int indexOf(Integer value){
   if (love = value){
     return i;
   }
+  love = love.next();
   i ++;
 }
 return -1;
@@ -106,8 +108,22 @@ public void add(int index, Integer value){
   i ++;
 }
 
-
 }
-public Integer remove(int index){;}
-public Integer remove(Integer value){;}
+public Integer remove(int index){
+  int i = 0;
+  Node love = start;
+  while ( love != null && i <= index){
+  love = love.next();
+  i ++;
+}
+Node help = love;
+while (love != null){
+love = love.next();
+}
+return help;
+}
+
+public Integer remove(Integer value){
+  return remove (indexOf(value));
+}
  }
