@@ -1,63 +1,42 @@
 
 
 public class MyLinkedList{
-  private Node start;
-  private Node end;
-  private int length;
-  private class Node{
-    private int data;
-    private Node next,prev;
-    public Node (Node n, Node p, int d){
-      next = n;
-      prev = p;
-      data = d;
+    private Node start;
+    private Node end;
+    private int length;
+
+    public MyLinkedList() {
+        start = null;
+        end = null;
+        length = 0;
     }
-      public Node next(){
-        return next;
-      }
-      public Node prev(){
-        return prev;
-      }
-      public void setNext(Node other){
-        next = other;
-      }
-      public void setPrev(Node other){
-        prev = other;
-      }
-      public Integer getData(){
-        return data;
-      }
-      public Integer setData(Integer i){
-        int sigh = data;
-        data = i;
-        return sigh;
-      }
-      public String toString(){
-        String y = "";
-        return y + data;
-      }
-   }
-   public MyLinkedList() {
-     start = null;
-     end = null;
-     length = 0;
-   }
-   public int size() {
-     return length;
-   }
-   public boolean add(Integer value){
-     Node gat = new Node (null, end, value);
-     end = gat;
-     return true;
-   }
-   public String toString(){
-     String happy = "[ ";
-     for (int i = 0; i < length -1; i ++){
-       happy = happy + start.next() + " , ";
-       start = start.next();
-     }
-     return happy + "]";
-   }
+
+    public int size() {
+        return length;
+    }
+
+    public boolean add(Integer value){
+        Node gat = new Node (null, end, value);
+        if (length == 0){
+            start = gat;
+        }
+        else{
+            gat.setPrev(end);
+            end.setNext(gat);
+        }
+        end = gat;
+        length ++;
+        return true;
+    }
+
+    public String toString(){
+        String happy = "[ ";
+        for (int i = 0; i < length -1; i ++){
+            happy = happy + start.next() + " , ";
+            start = start.next();
+        }
+        return happy + "]";
+    }
 
    public Integer get(int index){
      if (index < 0 || index >= length){
@@ -146,4 +125,38 @@ return help.getData();
 public Integer remove(Integer value){
   return remove (indexOf(value));
 }
+
+private class Node{
+  private int data;
+  private Node next,prev;
+  public Node (Node n, Node p, int d){
+    next = n;
+    prev = p;
+    data = d;
+  }
+    public Node next(){
+      return next;
+    }
+    public Node prev(){
+      return prev;
+    }
+    public void setNext(Node other){
+      next = other;
+    }
+    public void setPrev(Node other){
+      prev = other;
+    }
+    public Integer getData(){
+      return data;
+    }
+    public Integer setData(Integer i){
+      int sigh = data;
+      data = i;
+      return sigh;
+    }
+    public String toString(){
+      String y = "";
+      return y + data;
+    }
+ }
  }
