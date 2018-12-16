@@ -129,9 +129,24 @@ length ++;
 }}
 
 public Integer remove(int index){
+Node gat = new Node (null,null, 0);
   if (index < 0 || index >= length){
     throw new IndexOutOfBoundsException();
   }
+  else if (index == length-1){
+          gat = end;
+          end = end.prev();
+          end.setNext(null);
+          length --;
+          return gat.getData();
+      }
+  else if (index == 0){
+            gat = start;
+             start = start.next();
+             length --;
+             return gat.getData();
+         }
+
   else {
       int i = 0;
   Node love = start;
@@ -139,15 +154,20 @@ public Integer remove(int index){
   love = love.next();
   i ++;
 }
-Node help = love;
-while (love != null){
-love = love.next();
-}
-return help.getData();
+gat = love;
+love.next().setPrev(love.prev());
+love.prev().setNext(love.next());
+length --;
+return gat.getData();
 }}
 
-public Integer remove(Integer value){
-  return remove (indexOf(value));
+public boolean remove(Integer value){
+    if (!contains(value)){
+      return  false;
+    }
+    int spot = indexOf(value);
+  remove (spot);
+  return true;
 }
 
 private class Node{

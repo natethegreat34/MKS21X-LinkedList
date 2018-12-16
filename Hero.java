@@ -93,7 +93,9 @@ public class Hero {
       System.out.println(e);
     }
     Integer num = 11;
-    System.out.println("Removing by value, trying to remove 11, should print true: " + list.remove(num));
+    System.out.println(list.indexOf(num));
+    list.remove(10);
+    System.out.println(list);
     System.out.println("Current list: " + list);
     num = 100;
     System.out.println("Trying to remove value 100, should print false: " + list.remove(num));
