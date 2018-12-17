@@ -111,10 +111,10 @@ public class MyLinkedList{
     }
 
     public void add(int index, Integer value){
-        if (index < 0 || index >= length){
+        if (index < 0 || index > length){
             throw new IndexOutOfBoundsException();
         }
-        else if (index == length-1){
+        else if (index == length){
           //if added to the end, can use other add function
                 add(value);
             }
