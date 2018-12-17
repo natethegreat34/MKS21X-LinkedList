@@ -18,6 +18,8 @@ public class Hero {
     for (int x = 0; x < 1000; x++) {
       list.add(x);
     }
+    list.add(3, -9);
+    System.out.println("adding hdiqhdinqdh" + list);
     System.out.println("Adding 1000 values to list, size should be 1010: " + list.size());
     System.out.println();
     System.out.println();

@@ -130,7 +130,7 @@ public class MyLinkedList{
             else{
                  int i = 0;
                  Node love = start;
-                while ( love != null && i <= index){
+                while ( love != null && i <= index - 1){
                     love = love.next();
                     i ++;
                 }
