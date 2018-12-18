@@ -65,7 +65,7 @@ public class MyLinkedList{
     }
 
     public String toString(){
-        String happy = "[ ";
+        String happy = "[";
         Node lol = start;
         if (length == 1){
             return "[" + start + "]";
@@ -79,7 +79,7 @@ public class MyLinkedList{
 
     public Integer get(int index){
        //keeps going till it gets to the secified node
-       if (index < 0 || index >= length){
+       if (index < 0 || index > length){
            throw new IndexOutOfBoundsException();
        }
        else{ int i = 0;
@@ -94,7 +94,7 @@ public class MyLinkedList{
 
     public Integer set(int index, Integer value){
     //uses same loop logic as get
-    if (index < 0 || index >= length){
+    if (index < 0 || index > length){
         throw new IndexOutOfBoundsException();
     }
     else{
@@ -144,10 +144,10 @@ public class MyLinkedList{
     }
 
     public void add(int index, Integer value){
-        if (index < 0 || index >= length){
+        if (index < 0 || index > length){
             throw new IndexOutOfBoundsException();
         }
-        else if (index == length-1){
+        else if (index == length){
           //if added to the end, can use other add function
                 add(value);
             }
@@ -179,10 +179,10 @@ public class MyLinkedList{
     public Integer remove(int index){
         //same as the void add but instead we are getting rid of the next,prev and forming new ones
         Node gat = new Node (null,null, 0);
-        if (index < 0 || index >= length){
+        if (index < 0 || index > length){
             throw new IndexOutOfBoundsException();
         }
-        else if (index == length-1){
+        else if (index == length){
           //if the value appears at the end we make the one before it the new end
               gat = end;
               end = end.prev();
