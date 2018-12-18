@@ -1,5 +1,4 @@
 
-
 public class MyLinkedList{
     private Node start;
     private Node end;
@@ -11,8 +10,39 @@ public class MyLinkedList{
         end = null;
         length = 0;
     }
+    public Node start(){
+        return start;
+    }
+    public Node end(){
+        return end;
+    }
+    public void setStart(Node other){
+      start = other;
+    }
+    public void setEnd(Node other){
+      end = other;
+    }
     public void clear (){
-      size = 0;
+      length = 0;
+    }
+    public void extend(MyLinkedList other){
+        if (this.size() == 0){
+            this.setStart(other.start());
+            this.setEnd(other.end());
+            length = other.size();}
+        else{
+            if (other.size() !=0){
+        this.end().setNext(other.start());
+        other.start().setPrev(this.end());
+        end = other.end();
+        length = this.size() + other.size();}}
+        other.setStart(null);
+        other.setEnd(null);
+        other.clear();
+
+     //in O(1) runtime, move the elements from other onto the end of this
+     //The size of other is reduced to 0
+     //The size of this is now the combined sizes of both original lists
     }
 
     public int size() {
@@ -114,10 +144,10 @@ public class MyLinkedList{
     }
 
     public void add(int index, Integer value){
-        if (index < 0 || index > length){
+        if (index < 0 || index >= length){
             throw new IndexOutOfBoundsException();
         }
-        else if (index == length){
+        else if (index == length-1){
           //if added to the end, can use other add function
                 add(value);
             }
@@ -194,20 +224,6 @@ public class MyLinkedList{
         remove (spot);
         return true;
     }
-    public void extend(MyLinkedList other){
-        this.end().setNext(other.start());
-        other.start().setPrev(this.end());
-        this.end() = other.end();
-        length = this.size() + other.size();
-        other.setStart(null);
-        other.setEnd(null);
-        other.clear();
-
-     //in O(1) runtime, move the elements from other onto the end of this
-     //The size of other is reduced to 0
-     //The size of this is now the combined sizes of both original lists
- }
-}
 
     private class Node{
       private int data;
@@ -222,18 +238,6 @@ public class MyLinkedList{
         }
         public Node prev(){
           return prev;
-        }
-        public Node start(){
-            return start;
-        }
-        public Node end(){
-            return end;
-        }
-        public void setStart(Node other){
-          start = other;
-        }
-        public void setEnd(Node other){
-          end = other;
         }
         public void setNext(Node other){
           next = other;
