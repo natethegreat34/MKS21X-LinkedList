@@ -27,11 +27,17 @@ public class MyLinkedList{
     }
     public void extend(MyLinkedList other){
         if (this.size() == 0){
+            //if the thing you want to extend is nothing, then the thing becomes the other thing you want to extend it by
             this.setStart(other.start());
             this.setEnd(other.end());
             length = other.size();}
         else{
             if (other.size() !=0){
+                //the thing your extending by (this's) appends with other
+                //other's start becomes just the next of the previously end of this
+                //others's end becomes the end
+                //this's end just is the value before the once start of other
+                // other fades away into the abyss
         this.end().setNext(other.start());
         other.start().setPrev(this.end());
         end = other.end();
